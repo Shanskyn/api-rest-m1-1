@@ -1,5 +1,4 @@
 # TP1 : mémo API Docker
-> Commandes effectuées
 > Dorian BORDERAN | ESGI M1 SI 2026-2027
 
 
@@ -919,4 +918,272 @@ n: Bearer nbt_3XkLUCJ2gaXZ.3L4cNbNTwdzv38GJA8lswV2CStZDZ0iy2QuTUfvU" \
   "allocated_memory": null,
   "allocated_disk": null
 }
+```
+
+# 3
+
+```bash
+debian@debian1 ~/a/adminapi (main)> git add .
+debian@debian1 ~/a/adminapi (main)> git commit -m "notes 1"
+[main 0e2216c] notes 1
+ 1 file changed, 922 insertions(+)
+ create mode 100644 adminapi/notes.md
+debian@debian1 ~/a/adminapi (main)> git status
+Sur la branche main
+Votre branche est en avance sur 'origin/main' de 3 commits.
+  (utilisez "git push" pour publier vos commits locaux)
+
+rien à valider, la copie de travail est propre
+debian@debian1 ~/a/adminapi (main)> git remote -v
+origin  git@github.com:Shanskyn/api-rest-m1-1.git (fetch)
+origin  git@github.com:Shanskyn/api-rest-m1-1.git (push)
+```
+
+# 4
+
+```bash
+debian@debian1 ~/api-rest-m1-1 (main)> docker run -d --name web1 --label admi
+napi.managed=true nginx:alpine
+6587593e7474143f0101456374d395937e95c3d241fc4fe7d0487fcdec558f0b
+debian@debian1 ~/api-rest-m1-1 (main)> docker run -d --name intrus nginx:alpi
+ne
+80dac4f0addf555c5c433bafaa3557748ecf12911948fa466f06f64483b7fe39
+
+debian@debian1 ~/api-rest-m1-1 (main)> curl -s http://127.0.0.1:2375/containe
+rs/web1/json | jq
+
+{
+  "Id": "6587593e7474143f0101456374d395937e95c3d241fc4fe7d0487fcdec558f0b",
+  "Created": "2026-10-26T09:55:03.66017326Z",
+  "Path": "/docker-entrypoint.sh",
+  "Args": [
+    "nginx",
+    "-g",
+    "daemon off;"
+  ],
+  "State": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 3513,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-26T09:55:03.743810308Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2",
+  "ResolvConfPath": "/var/lib/docker/containers/6587593e7474143f0101456374d395937e95c3d241fc4fe7d0487fcdec558f0b/resolv.conf",
+  "HostnamePath": "/var/lib/docker/containers/6587593e7474143f0101456374d395937e95c3d241fc4fe7d0487fcdec558f0b/hostname",
+  "HostsPath": "/var/lib/docker/containers/6587593e7474143f0101456374d395937e95c3d241fc4fe7d0487fcdec558f0b/hosts",
+  "LogPath": "/var/lib/docker/containers/6587593e7474143f0101456374d395937e95c3d241fc4fe7d0487fcdec558f0b/6587593e7474143f0101456374d395937e95c3d241fc4fe7d0487fcdec558f0b-json.log",
+  "Name": "/web1",
+  "RestartCount": 0,
+  "Driver": "overlayfs",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "docker-default",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": null,
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {}
+    },
+    "NetworkMode": "bridge",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      26,
+      77
+    ],
+    "CapAdd": null,
+    "CapDrop": null,
+    "CgroupnsMode": "private",
+    "Dns": null,
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": false,
+    "SecurityOpt": null,
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 0,
+    "NanoCpus": 0,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 0,
+    "MemorySwappiness": null,
+    "OomKillDisable": null,
+    "PidsLimit": null,
+    "Ulimits": null,
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "MaskedPaths": [
+      "/proc/acpi",
+      "/proc/asound",
+      "/proc/interrupts",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/sys/devices/virtual/powercap",
+      "/sys/firmware"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ]
+  },
+  "Storage": {
+    "RootFS": {
+      "Snapshot": {
+        "Name": "overlayfs"
+      }
+    }
+  },
+  "Mounts": [],
+  "Config": {
+    "Hostname": "6587593e7474",
+    "Domainname": "",
+    "User": "",
+    "AttachStdin": false,
+    "AttachStdout": false,
+    "AttachStderr": false,
+    "ExposedPorts": {
+      "80/tcp": {}
+    },
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "NGINX_VERSION=1.31.6",
+      "PKG_RELEASE=1",
+      "DYNPKG_RELEASE=1",
+      "NJS_VERSION=1.0.1",
+      "NJS_RELEASE=1",
+      "ACME_VERSION=0.4.1"
+    ],
+    "Cmd": [
+      "nginx",
+      "-g",
+      "daemon off;"
+    ],
+    "Image": "nginx:alpine",
+    "Volumes": null,
+    "WorkingDir": "/",
+    "Entrypoint": [
+      "/docker-entrypoint.sh"
+    ],
+    "Labels": {
+      "adminapi.managed": "true",
+      "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+    },
+    "StopSignal": "SIGQUIT"
+  },
+  "NetworkSettings": {
+    "SandboxID": "9f8d26e21189cf8142f01d84db32440da7be92d8f7e9d6270c9c77cc914df371",
+    "SandboxKey": "/var/run/docker/netns/9f8d26e21189",
+    "Ports": {
+      "80/tcp": null
+    },
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "DriverOpts": null,
+        "GwPriority": 0,
+        "NetworkID": "5db6df3bb1ca53b8e8e309523e950da6011f91fc298f4f0704bee643a8f6ea7a",
+        "EndpointID": "7511b823b46d9e94fd3c5806aa253935a1dc8fdd749cd9daeb9515371db9e7cb",
+        "Gateway": "172.17.0.1",
+        "IPAddress": "172.17.0.2",
+        "MacAddress": "3a:89:3f:be:7a:2c",
+        "IPPrefixLen": 16,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "DNSNames": null
+      }
+    }
+  },
+  "ImageManifestDescriptor": {
+    "mediaType": "application/vnd.oci.image.manifest.v1+json",
+    "digest": "sha256:0530961ff0592b58c10f767535cc0abdfccf9e389ff7cc90f87320c1bc7e8506",
+    "size": 2495,
+    "annotations": {
+      "com.docker.official-images.bashbrew.arch": "amd64",
+      "org.opencontainers.image.base.digest": "sha256:9b58c1e8e776c8f79fca3e56d969b9ee1474ddfcf70d50a617dc85e9882a7bdb",
+      "org.opencontainers.image.base.name": "nginx:1.31.6-alpine-slim",
+      "org.opencontainers.image.created": "2026-09-22T22:09:49Z",
+      "org.opencontainers.image.revision": "a16f1329e13e7273c4103f75d863ca625b75109e",
+      "org.opencontainers.image.source": "https://github.com/nginx/docker-nginx.git#a16f1329e13e7273c4103f75d863ca625b75109e:mainline/alpine",
+      "org.opencontainers.image.url": "https://hub.docker.com/_/nginx",
+      "org.opencontainers.image.version": "1.31.6-alpine"
+    },
+    "platform": {
+      "architecture": "amd64",
+      "os": "linux"
+    }
+  }
+}
+debian@debian1 ~/api-rest-m1-1 (main)> curl -i -X POST http://127.0.0.1:2375/
+containers/web1/stop |jq
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--       0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--       0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+jq: parse error: Invalid numeric literal at line 1, column 9
+debian@debian1 ~/api-rest-m1-1 (main) [0|5]> curl -i -X POST http://127.0.0.1
+:2375/containers/web1/start | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--       0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+jq: parse error: Invalid numeric literal at line 1, column 9
 ```

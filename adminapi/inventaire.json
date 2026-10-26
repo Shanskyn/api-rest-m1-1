@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-26T10:25:22.509297+00:00",
+  "docker": {
+    "total_conteneurs": 6,
+    "conteneurs": [
+      {
+        "id": "80dac4f0addf",
+        "nom": "intrus",
+        "image": "nginx:alpine",
+        "etat": "running",
+        "cpu_pourcent": 0.0,
+        "memoire_mo": 4.89
+      },
+      {
+        "id": "6587593e7474",
+        "nom": "web1",
+        "image": "nginx:alpine",
+        "etat": "running",
+        "cpu_pourcent": 0.0,
+        "memoire_mo": 4.76
+      },
+      {
+        "id": "cd599e4ea199",
+        "nom": "apirest-netbox-1",
+        "image": "netboxcommunity/netbox:v4.7-5.1.1",
+        "etat": "running",
+        "cpu_pourcent": 0.01,
+        "memoire_mo": 1262.75
+      },
+      {
+        "id": "33e68e4d8db5",
+        "nom": "apirest-netbox-postgres-1",
+        "image": "postgres:17-alpine",
+        "etat": "running",
+        "cpu_pourcent": 3.61,
+        "memoire_mo": 64.67
+      },
+      {
+        "id": "79c739695edb",
+        "nom": "apirest-docker-api-1",
+        "image": "tecnativa/docker-socket-proxy:v0.4.2",
+        "etat": "running",
+        "cpu_pourcent": 0.0,
+        "memoire_mo": 26.97
+      },
+      {
+        "id": "2e0d66d74514",
+        "nom": "apirest-netbox-redis-1",
+        "image": "valkey/valkey:8-alpine",
+        "etat": "running",
+        "cpu_pourcent": 0.38,
+        "memoire_mo": 16.21
+      }
+    ]
+  },
+  "netbox": {
+    "version": "4.7.3",
+    "object_types_count": 163
+  }
+}
